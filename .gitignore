@@ -1,0 +1,8 @@
+# 大文件不入库：驱动安装包/安装器 dmg 请用 scripts/macos/fetch-driver.sh 下载
+*.tar.gz
+*.tar.xz
+*.zip
+*.dmg
+*.pkg
+# 日志轮转残留
+*.log.gz

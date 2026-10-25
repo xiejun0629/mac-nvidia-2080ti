@@ -1,0 +1,73 @@
+=== sw_vers ===
+ProductName:		macOS
+ProductVersion:		15.8.1
+BuildVersion:		24H32
+=== nvram boot-args ===
+boot-args	-v debug=0x100 keepsyms=1 nvfb=1 nvaccel=1 nvfbheads=4 -nvkmsnosmooth amfi_get_out_of_my_way=0x1 amfi=0x80 ipc_control_port_options=0 nvrmsettle=10000
+=== kexts ===
+  128    0 0xffffff7f9808d000 0x21452    0x21452    com.nullmoth.NVRMFB (2.3.6) <REDACTED_UUID> <123 7 6 3 1>
+  147    0 0xffffff7f98088000 0x2edf     0x2edf     com.nullmoth.NVRMAGDC (2.3.6) <REDACTED_UUID> <124 7 6 3 1>
+  150    0 0xffffff7f97198000 0xd8091c   0xd8091c   com.nullmoth.NVRM (2.3.6) <REDACTED_UUID> <18 17 9 7 6 3 1>
+  154    0 0xffffff7f97178000 0x13d50    0x13d50    com.nullmoth.NVAccel (2.3.6) <REDACTED_UUID> <153 123 81 18 7 6 3 1>
+=== displays ===
+Graphics/Displays:
+
+    NVIDIA GeForce RTX 2080 Ti:
+
+      Chipset Model: NVIDIA GeForce RTX 2080 Ti
+      Type: GPU
+      Bus: PCIe
+      PCIe Lane Width: x16
+      VRAM (Total): 11 GB
+      Vendor: NVIDIA (0x10de)
+      Device ID: 0x1e07
+      Revision ID: 0x00a1
+      Metal Support: Metal 3
+      Displays:
+        Q24G2:
+          Resolution: 2560 x 1440 (QHD/WQHD - Wide Quad High Definition)
+          UI Looks like: 2560 x 1440 @ 144.00Hz
+          Framebuffer Depth: 24-Bit Color (ARGB8888)
+          Display Serial Number: TYJP4HA900817
+          Main Display: Yes
+          Mirror: Off
+          Online: Yes
+
+    AMD Radeon RX Renoir Graphics:
+
+      Chipset Model: AMD Radeon RX Renoir Graphics
+      Type: GPU
+      Bus: PCIe
+      Slot: built-in
+      PCIe Lane Width: x16
+      VRAM (Total): 512 MB
+      Vendor: AMD (0x1002)
+      Device ID: 0x1638
+      Revision ID: 0x00c8
+      ROM Revision: 113-CEZANNE-018
+      Metal Support: Metal 3
+
+=== nullmoth dir ===
+total 400
+drwxr-xr-x  20 root  wheel     640 10 24 22:42 .
+drwxr-xr-x  66 root  wheel    2112 10 24 21:35 ..
+drwx------   4 root  wheel     128 10 24 21:35 backup-20261024-213548.mu8CdE
+drwx------  16 root  wheel     512 10 24 22:12 backup-20261024-221237.Fb9cQt
+drwx------  15 root  wheel     480 10 24 22:42 backup-20261024-224248.7T2jdc
+-rw-r--r--   1 root  wheel     360 10 24 22:44 bootguard.log
+-rwxr-xr-x   1 root  wheel     682 10 24 22:12 bootguard.sh
+-rw-r--r--   1 root  wheel       6 10 24 22:42 driver-version
+drwxr-xr-x   4 root  wheel     128  1  1  1970 kexts
+-rw-r--r--   1 root  wheel      79 10 24 22:20 lastgood.log
+-rwxr-xr-x   1 root  wheel    2179 10 24 22:42 lastgood.sh
+drwxr-xr-x   9 root  wheel     288 10 24 22:12 licenses
+-rwxr-xr-x   1 root  wheel     333 10 24 22:42 nullmoth-recover.sh
+-rwxr-xr-x@  1 root  wheel  135998 10 24 22:42 nullmoth-setup.sh
+drwxr-xr-x   3 root  wheel      96 10 24 22:12 nvfw
+-rw-r--r--   1 root  wheel       3 10 24 22:42 os-major
+-rw-------   1 root  wheel     610 10 24 22:42 state
+-rw-------   1 root  wheel     610 10 24 22:12 state.before-install
+-rw-r--r--   1 root  wheel   18148 10 24 21:35 system-profile.json
+-rwxr-xr-x   1 root  wheel    7363 10 24 22:42 uninstall.sh
+=== driver-version ===
+2.3.6

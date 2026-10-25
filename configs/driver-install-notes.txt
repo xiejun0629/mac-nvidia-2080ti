@@ -1,0 +1,23 @@
+NULLMOTH 2.3.6 driver install (after Sequoia boots; needs root, no network required)
+- Package: /Users/user/1401-work/nullmoth-nvidia-2.3.6.tar.gz
+  SHA256 3855954d9069eca470e4dbc7f645a63bba888040ec099285ef044ece03ad8e4f
+- App resources: /Users/user/1401-work/1401.app/Contents/Resources/
+  (nullmoth-setup.sh, NullMothSafe.efi, nullmoth-rules.json, nvidia_gsp_ids.json)
+- Profile: /Users/user/1401-work/machine-profile.json
+- ESP = OpenCore ESP (config at EFI/OC/config.plist, model iMacPro1,1, 13 kexts incl Lilu 1.7.3 + AMFIPass 1.4.1,
+  AppleIGC 1.7d3, NootedRed 0.8.10). NVIDIA 2080 Ti -> Turing: setup.sh adds boot-arg nvrmsettle=10000 automatically.
+- Turing per-system knobs (from nullmoth-rules.json): NVK_CMDPOOL_GPU_UNCACHED=1, NVK_SYSMEM_GPU_UNCACHED=1,
+  NVMTL_NO_NVENC=1, NVMTL_NO_NVENC_HEVC=1
+- Headless dry run:
+  sudo /Users/user/1401-work/1401.app/Contents/Resources/nullmoth-setup.sh \
+    --pkg /Users/user/1401-work/nullmoth-nvidia-2.3.6.tar.gz \
+    --sha 3855954d9069eca470e4dbc7f645a63bba888040ec099285ef044ece03ad8e4f --efi auto \
+    --tool /Users/user/1401-work/1401.app/Contents/Resources/NullMothSafe.efi \
+    --profile /Users/user/1401-work/machine-profile.json \
+    --knob NVK_CMDPOOL_GPU_UNCACHED=1 --knob NVK_SYSMEM_GPU_UNCACHED=1 \
+    --knob NVMTL_NO_NVENC=1 --knob NVMTL_NO_NVENC_HEVC=1 --dry
+  then repeat without --dry.  It adds boot-args, keeps csr-active-config 0x0A43, installs kexts to /Library/Extensions,
+  GPUBundles, firmware to /Users/Shared/nvfw, and adds OpenCore tool entries "1401: Remove NVIDIA driver" +
+  "1401: Start once without NVIDIA driver" (NullMothSafe.efi) as the way back.
+- Manual fallback: tar -xzf nullmoth-nvidia-2.3.6.tar.gz && cd pkgroot && sudo ./install.sh --payload $PWD
+- Driver supports macOS 15 Sequoia and macOS 26 only (NOT macOS 13/14).

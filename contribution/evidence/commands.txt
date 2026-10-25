@@ -1,0 +1,19 @@
+# 采集用到的命令（可直接复跑）
+kmutil showloaded | grep -i nullmoth
+system_profiler SPDisplaysDataType
+nvram boot-args
+sysctl debug.nvrmfb_flip_latch
+plutil -p /Library/Extensions/NVRM.kext/Contents/Info.plist | grep CFBundleShortVersionString
+sudo -n cat /Library/NullMoth/driver-version
+ls /Library/Logs/DiagnosticReports | grep -c gpuRestart
+ls /Library/Logs/DiagnosticReports/*.panic 2>/dev/null | wc -l
+ps -o %cpu= -p $(pgrep -x WindowServer)   # 采样 WindowServer CPU
+sudo sysctl -w debug.nvrmfb_flip_latch=2   # opt-in 高刷优化（测试后已删除持久化）
+# 驱动安装（示例 2.3.6）
+sudo ~/1401-work/1401.app/Contents/Resources/nullmoth-setup.sh \
+  --pkg ~/1401-work/nullmoth-nvidia-2.3.6.tar.gz \
+  --sha 3855954d9069eca470e4dbc7f645a63bba888040ec099285ef044ece03ad8e4f \
+  --efi auto --tool ~/1401-work/1401.app/Contents/Resources/NullMothSafe.efi \
+  --profile ~/1401-work/machine-profile.json \
+  --knob NVK_CMDPOOL_GPU_UNCACHED=1 --knob NVK_SYSMEM_GPU_UNCACHED=1 \
+  --knob NVMTL_NO_NVENC=1 --knob NVMTL_NO_NVENC_HEVC=1

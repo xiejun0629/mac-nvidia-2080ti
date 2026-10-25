@@ -1,0 +1,2 @@
+sha256  86874472be0f58e5afc2baf67a5b4bc8271872a4a57caec66c106c274daa271d  opencore-config.current-esp.plist
+sha256  790b4654608f25877d60951d8a9401a1adf6a4d2d9f02522b388703a7a3658b3  driver-install-notes.txt
